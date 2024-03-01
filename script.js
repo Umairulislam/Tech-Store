@@ -79,6 +79,7 @@ const checkboxes = document.querySelectorAll(".check")
 const filtersContainer = document.getElementById("filters-container")
 const searchInput = document.getElementById("search")
 const cartCount = document.getElementById("cart-count")
+const navbar = document.querySelector("nav")
 
 // Init cart item count
 let cartItemCount = 0
@@ -176,6 +177,15 @@ function filterProducts() {
   })
 }
 
+function scrollEvent() {
+  if (window.scrollY > 50) {
+    navbar.classList.add("opacity-95")
+  } else {
+    navbar.classList.remove("opacity-95")
+  }
+}
+
 // Event listeners for checkboxes and search input
 filtersContainer.addEventListener("change", filterProducts)
 searchInput.addEventListener("input", filterProducts)
+window.addEventListener("scroll", scrollEvent)
